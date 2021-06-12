@@ -19,3 +19,32 @@
         </div>
     </div>
 {% endmacro %}
+
+{% macro display_new_articles(articles_outcome) %}
+<div class="container-fluid">
+    <div class="card-columns">
+        {% for article in articles_outcome %}
+            <div class="card" style="display: flex; justify-content: space-around;">
+                <div class="card-header art">
+                    <h4 style="color: rgb(40, 80, 3); font-family:monospace;">{{article.title}}</h4>
+                </div>
+                <div class="card-body" style="display: flex; justify-content: space-between;">
+                    <img src="{{article.urlToImage}}" alt="{{article.title }}" class="card-img" style="height: 100px; width: 200px;">
+                    
+                    <p class="desc" style="color: rgb(70, 18, 18); font-size: larger; font-family: cursive;">
+                        {{article.description}}
+                    </p>
+                    <p disabled style="color: rgb(19, 18, 1);" >Posted: {{article.publishedAt | truncate(13)}} By: {{article.author | truncate(16)}} </p>
+                </div>
+                <div class="card-footer">
+                     <a href="{{article.url}}"><button class="btn btn-sm btn-outline-success">Read More</button></a> 
+                </div>
+            </div>
+            <br>
+            <hr>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endmacro %}
