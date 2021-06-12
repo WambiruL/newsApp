@@ -75,3 +75,30 @@ def process_new_articles(articles_list):
         articles_outcome.append(new_article)
     
     return articles_outcome
+
+def articles_source(source):
+    sources_a_url = 'https://newsapi.org/v2/everything?sources={}&apiKey=ded7a04297794b6b8499160ed51d1a2c'.format(source,api_key)
+
+    with urllib.request.urlopen(sources_a_url) as url:
+        art_data = url.read()
+        response = json.loads(art_data)
+        source_articles = None
+        if response['articles']:
+            source_articles_list = response['articles']
+            source_articles = process_articles_source(source_articles_list)
+    return source_articles
+
+def process_articles_source(article_list):
+    source_articles = []
+    for art in article_list:
+        source = art.get("source")
+        author = art.get('author')
+        title = art.get('title')
+        description = art.get('description')
+        url = art.get('url')
+        urlToImage = art.get('urlToImage')
+        publishedAt = art.get('publishedAt')
+        
+        article_object = Articles(source,author,title,description,url,urlToImage,publishedAt)
+        source_articles.append(article_object)
+    return source_articles
