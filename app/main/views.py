@@ -1,5 +1,5 @@
 from flask import render_template
-from ..requests import get_sources,get_articles
+from ..requests import get_sources,get_articles, articles_source
 from . import main
 
 
@@ -27,3 +27,9 @@ def NewsArticles():
     education_articles = get_articles('technology')
     return render_template('articles.html',health=health_articles, tech =education_articles)
 
+@main.route('/articles/<id>')
+def sourceArticles(id):
+    all_articles = articles_source(id)
+    print(all_articles)
+    source = id
+    return render_template('sourcearticles.html', articles = all_articles, source = source)
