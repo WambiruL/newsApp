@@ -5,3 +5,18 @@
     {{ super() }}
     <link rel="stylesheet" href="{{url_for('static',filename='css/sources.css')}}">
 {% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="allsources" >
+    <div class="overlay">
+        <h2 class="font-weight-bold headers" >General News</h2>
+        {{ macro.display_new_sources(general) }}
+ 
+        <h2 class=" font-weight-bold headers" > Business News</h2>
+        {{ macro.display_new_sources(business) }}
+        <h2 class=" font-weight-bold headers" > Sports news </h2>
+        {{ macro.display_new_sources(sports) }}
+    </div>
+</div>
+
+{% endblock %}
