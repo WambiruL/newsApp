@@ -14,4 +14,8 @@ def create_app(config_name):
 #setting up app configuration
     app.config.from_object(config_options[config_options])
 
+#Registering blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
     return app
