@@ -1,0 +1,3 @@
+export MOVIE_API_KEY=ded7a04297794b6b8499160ed51d1a2c
+
+python3.6 manage.py server
