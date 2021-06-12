@@ -9,8 +9,8 @@ def configure_request(app):
     global api_key,s_url,art_url
     api_key=app.config['API_KEY']
     s_url=app.config['NEWS_API_BASE_URL']
-    articles_url=app.config['SOURCES_ARTICLES_URL']
-    art_url=app.config['NEWS_ARTICLES_API_URL']
+    articles_url=app.config['SOURCE_ARTICLES_URL']
+    art_url=app.config['NEWS_ARTICLES_APL_URL']
 
 def get_sources(category):
     """

@@ -12,7 +12,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
 
 #setting up app configuration
-    app.config.from_object(config_options[config_options])
+    app.config.from_object(config_options[config_name])
 
 #Registering blueprint
     from .main import main as main_blueprint
