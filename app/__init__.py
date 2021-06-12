@@ -14,5 +14,4 @@ def create_app(config_name):
 #setting up app configuration
     app.config.from_object(config_options[config_options])
 
-from app import  views
-from app import errors
+    return app
