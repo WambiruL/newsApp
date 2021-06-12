@@ -26,3 +26,4 @@ def NewsArticles():
     health_articles = get_articles('health')
     education_articles = get_articles('technology')
     return render_template('articles.html',health=health_articles, tech =education_articles)
+
