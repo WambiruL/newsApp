@@ -8,7 +8,8 @@ art_url=None
 def configure_request(app):
     global api_key,s_url
     api_key=app.config['API_KEY']
-    s_url-app.config['NEWS_API_BASE_URL']
+    s_url=app.config['NEWS_API_BASE_URL']
+    articles_url=app.config['SOURCES_ARTICLES_URL']
     art_url=app.config['NEWS_ARTICLES_API_URL']
 
 def get_sources(category):

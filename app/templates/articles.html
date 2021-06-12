@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid " style="background-color: rgb(216, 121, 31); border: chartreuse;" id="allsources">
+    <div class="overlay container-fluid"> 
+           
+        <h2 class="text-center headers" style="font-size: 30px; color: rgb(243, 239, 243)">TECHNOLOGY</h2>
+        <div class="style">{{macro.display_new_articles(tech)}}</div>
+
+        <h2 class="text-center headers" style="font-size: 30px; color: rgb(243, 239, 243)">Health News Articles</h2>
+        {{macro.display_new_articles(health)}}
+    </div>
+</div>
+{% endblock %}
