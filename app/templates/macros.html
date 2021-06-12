@@ -1,0 +1,21 @@
+{% macro display_new_sources(sources_outcome) %}
+
+    <div class="container-fluid" style="background-color: rgb(228, 193, 81)">
+        <div class="card-columns">
+            {% for news in sources_outcome %}
+            <div class="card sourcecard">
+                <div class="card-header" id="sourcename" >
+                    <h4><a href="/articles/{{news.id}}">{{news.name}}</a></h4>
+                </div>
+                <div class="card-body">
+                    <p class="desc">
+                        {{news.description}}
+                    </p>
+                    <a href="/articles/{{news.id}}"><button class="btn btn-sm btn-outline-success">Read Articles</button> </a>
+                    <a href="{{news.url}}"><button class="btn btn-sm btn-outline-info" id="visit">Visit {{news.name}}</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
