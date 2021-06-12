@@ -102,3 +102,17 @@ def process_articles_source(article_list):
         article_object = Articles(source,author,title,description,url,urlToImage,publishedAt)
         source_articles.append(article_object)
     return source_articles
+
+def search_articles(article_name):
+    search_articles_url='https://newsapi.org/v2/everything?q=Apple&from=2021-06-12&sortBy=popularity&apiKey=ded7a04297794b6b8499160ed51d1a2c'.format(api_key,article_name)
+    with urllib.request.urlopen(search_articles_url) as url:
+        search_data = url.read()
+        search_articles_response = json.loads(search_data)
+
+        search_articles= None
+
+        if search_articles_response['articles']:
+            all_search_results = search_articles_response['articles']
+            search_articles = process_search(all_search_results)
+    return search_articles
+
