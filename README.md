@@ -21,6 +21,9 @@ This is an application that enables the viewer to preview news articles from var
 <li>CSS</li>
 <li>Flask</li>
 
+## Live page
+https://newsapp-by-news-api.herokuapp.com/
+
 ## Copyright and license information
 Copyright © 2021 Lorraine Wambui
 
